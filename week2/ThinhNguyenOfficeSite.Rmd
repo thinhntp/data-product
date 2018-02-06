@@ -1,0 +1,24 @@
+---
+title: "R Markdown and Leaflet"
+author: "Thinh Nguyen"
+date: "February 6, 2018"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## This is my company
+
+```{r}
+library(leaflet)
+my_map<-leaflet()
+my_map<-addTiles(my_map)
+stu_icon<-makeIcon(iconUrl = "http://stu.edu.vn/images/logo.png",iconWidth = 80,iconHeight = 40,iconAnchorX = 40,iconAnchorY = 25)
+stu_site<-"<a href='http://stu.edu.vn/'>Dai hoc cong nghe sai gon</a>"
+my_map = addMarkers(my_map, lat =10.738281,lng = 106.677980, popup=stu_site,icon = stu_icon)
+my_map
+```
